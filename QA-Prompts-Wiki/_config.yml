@@ -1,0 +1,51 @@
+# QA Prompts Library Website Configuration
+
+theme: jekyll-theme-cayman
+title: QA Prompts Library
+description: Professional AI prompts for every QA task across the entire SDLC
+
+# Navigation
+nav_links:
+  - title: Home
+    url: /
+  - title: Quick Start
+    url: /00-Quick-Reference
+  - title: Requirements
+    url: /01-Requirements/
+  - title: Design
+    url: /02-Design/
+  - title: Development
+    url: /03-Development/
+  - title: Testing
+    url: /04-Testing/
+  - title: UAT
+    url: /05-UAT/
+  - title: Deployment
+    url: /06-Deployment/
+  - title: Maintenance
+    url: /07-Maintenance/
+  - title: Formats
+    url: /99-Formats/
+
+# Plugins
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-titles-from-headings
+
+# Settings
+markdown: kramdown
+relative_links:
+  enabled: true
+  collections: true
+
+titles_from_headings:
+  enabled: true
+  strip_title: true
+  collections: true
+
+# Exclude
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
