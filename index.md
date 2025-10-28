@@ -1,6 +1,6 @@
 # 📚 QA Prompts Library
 
-**Professional AI prompts for every QA task across the entire SDLC**
+**Professional AI prompts for every QA task across the entire SDLC!**
 
 ---
 
