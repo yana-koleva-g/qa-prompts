@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        .sidebar p {
+            font-size: 13px;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+
+        .nav-section {
+            margin-bottom: 20px;
+        }
+
+        .nav-section h3 {
+            font-size: 14px;
+            color: #3498db;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-section ul {
+            list-style: none;
+        }
+
+        .nav-section li {
+            margin-bottom: 8px;
+        }
+
+        .nav-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+            font-size: 14px;
+        }
+
+        .nav-section a:hover {
+            background: #34495e;
+            color: #3498db;
+        }
+
+        .nav-section a.active {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .main-content h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .main-content h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .main-content h3 {
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .main-content code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 14px;
+            color: #e74c3c;
+        }
+
+        .main-content pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .main-content pre code {
+            background: none;
+            color: #ecf0f1;
+            padding: 0;
+        }
+
+        .main-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .main-content th {
+            background: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .main-content td {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+        }
+
+        .main-content tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .main-content a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .main-content a:hover {
+            text-decoration: underline;
+        }
+
+        .cost-badge {
+            display: inline-block;
+            background: #2ecc71;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .priority-critical {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .priority-high {
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+
+        /* Copy button for code blocks */
+        .copy-btn {
+            position: relative;
+            float: right;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: -10px;
+        }
+
+        .copy-btn:hover {
+            background: #2980b9;
+        }
+
+        /* Emojis support */
+        .emoji {
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <h1>📚 QA Prompts Library</h1>
+            <p>Professional AI prompts for QA</p>
+
+            <div class="nav-section">
+                <h3>Quick Access</h3>
+                <ul>
+                    <li><a href="/00-INDEX.html">🏠 Home</a></li>
+                    <li><a href="/00-Quick-Reference.html">⚡ Quick Reference</a></li>
+                    <li><a href="/00-Best-Practices.html">💡 Best Practices</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>SDLC Phases</h3>
+                <ul>
+                    <li><a href="/01-Requirements/">📋 Requirements</a></li>
+                    <li><a href="/02-Design/">🎨 Design</a></li>
+                    <li><a href="/03-Development/">💻 Development</a></li>
+                    <li><a href="/04-Testing/">🧪 Testing</a></li>
+                    <li><a href="/05-UAT/">✅ UAT</a></li>
+                    <li><a href="/06-Deployment/">🚀 Deployment</a></li>
+                    <li><a href="/07-Maintenance/">🔧 Maintenance</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Popular Prompts</h3>
+                <ul>
+                    <li><a href="/03-Development/API-Tests.html">🔌 API Tests</a></li>
+                    <li><a href="/04-Testing/Functional-Tests.html">✅ Functional Tests</a></li>
+                    <li><a href="/04-Testing/Security-Tests.html">🔒 Security Tests</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="/99-Formats/00-INDEX.html">🎨 Format Library</a></li>
+                    <li><a href="/99-Formats/API-Tests-Format.html">🔌 API Format</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            {{ content }}
+        </main>
+    </div>
+
+    <script>
+        // Copy button functionality
+        document.querySelectorAll('pre').forEach((block) => {
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.textContent = 'Copy';
+            button.addEventListener('click', () => {
+                const code = block.querySelector('code').textContent;
+                navigator.clipboard.writeText(code);
+                button.textContent = 'Copied!';
+                setTimeout(() => button.textContent = 'Copy', 2000);
+            });
+            block.appendChild(button);
+        });
+
+        // Highlight active nav link
+        const currentPath = window.location.pathname;
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
